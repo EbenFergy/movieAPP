@@ -1,5 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import Body from "../components/Body/Body";
+import APIContextProvider from "../store/APIContextProvider";
 
 const Api = () => {
   const [apiData, setApiData] = useState();
@@ -36,13 +37,15 @@ const Api = () => {
     fetchHandler();
   }, [fetchHandler]);
 
+  const APIContextValues = {
+    apiData: apiData,
+    isLoading: isLoading,
+  };
+
   return (
     <>
       {/* {apiData.results.map((movie) => movie.titleText.text)} */}
-      {isLoading && <div> Loading... </div>}
-      {!isLoading && <div> okkkkk now working </div>}
-      {apiData && <Body apiData={apiData} />}
-      <button onClick={fetchHandler}>Fetch</button>
+      {/* <APIContextProvider apiData={apiData} isLoading={isLoading} /> */}
     </>
   );
 };

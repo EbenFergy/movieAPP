@@ -1,7 +1,8 @@
 import { createContext } from "react";
 
-const APIContext = createContext({
-  api: null,
+const context = createContext({
+  apiData: null,
+  isLoading: null,
 });
 
-export default APIContext;
+export default context;
