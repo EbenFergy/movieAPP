@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Body from "./components/Body/Body";
-// import ApiContextProvider from "./store/APIContextProvider";
+import ApiProvider from "./Api/Api";
 
 const App = () => {
-  let focus = "mumu";
   return (
     <>
-      <div className="App">Good boy</div>
-      {/* <APIContextProvider> */}
-      <Body />
-      {/* <ApiContextProvider dren={focus} /> */}
-      {/* </APIContextProvider> */}
+      <ApiProvider>
+        <Body />
+      </ApiProvider>
     </>
   );
 };

@@ -1,11 +1,12 @@
 import { useEffect, useState, useCallback } from "react";
 import Body from "../components/Body/Body";
-import APIContextProvider from "../store/APIContextProvider";
+import context from "../store/context";
 
-const Api = () => {
+const ApiProvider = (props) => {
   const [apiData, setApiData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
+  let randomNumber = Math.floor(Math.random() * 37) % 12;
   const fetchHandler = useCallback(async () => {
     setIsLoading(true);
     const options = {
@@ -18,7 +19,9 @@ const Api = () => {
 
     try {
       const response = await fetch(
-        "https://moviesdatabase.p.rapidapi.com/titles?limit=50&page=4&titleType=movie",
+        `https://moviesdatabase.p.rapidapi.com/titles?limit=50&page=${
+          randomNumber === 0 ? randomNumber + 10 : randomNumber
+        }&titleType=movie`,
         options
       );
       if (!response.ok) {
@@ -26,7 +29,7 @@ const Api = () => {
       }
       const data = await response.json();
       setIsLoading(false);
-      console.log(data);
+      // console.log(data);
       setApiData(data);
     } catch (error) {
       console.log(error.message);
@@ -43,11 +46,10 @@ const Api = () => {
   };
 
   return (
-    <>
-      {/* {apiData.results.map((movie) => movie.titleText.text)} */}
-      {/* <APIContextProvider apiData={apiData} isLoading={isLoading} /> */}
-    </>
+    <context.Provider value={APIContextValues}>
+      {props.children}
+    </context.Provider>
   );
 };
 
-export default Api;
+export default ApiProvider;
