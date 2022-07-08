@@ -1,13 +1,13 @@
 import { useEffect, useState, useCallback } from "react";
-import Body from "../components/Body/Body";
 import context from "../store/context";
 
 const ApiProvider = (props) => {
   const [apiData, setApiData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  let randomNumber = Math.floor(Math.random() * 37) % 12;
   const fetchHandler = useCallback(async () => {
+    // let randomNumber = Math.floor(Math.random() * 37) % 12;
+    let randomNumber = 9;
     setIsLoading(true);
     const options = {
       method: "GET",
