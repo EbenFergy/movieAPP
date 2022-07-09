@@ -19,7 +19,7 @@ const ApiProvider = (props) => {
 
     try {
       const response = await fetch(
-        `https://moviesdatabase.p.rapidapi.com/titles?limit=50&page=${
+        `https://moviesdatabase.p.rapidapi.com/titles?limit=20&page=${
           randomNumber === 0 ? randomNumber + 10 : randomNumber
         }&titleType=movie`,
         options

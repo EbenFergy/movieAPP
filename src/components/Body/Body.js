@@ -7,6 +7,10 @@ const Body = () => {
   apiData && console.log("apiData in Body...", apiData);
   return (
     <BodyStyle>
+      <div>Trending</div>
+      <div>Action</div>
+      <div>Comedy</div>
+      <div>Love</div>
       {isLoading && <div> Loading... </div>}
       <div className="movieBody">
         {!isLoading &&
