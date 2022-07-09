@@ -6,7 +6,7 @@ const HeaderStyle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: rgb(255, 255, 255, 0.9);
   font-size: 5rem;
   font-weight: 700;
 
