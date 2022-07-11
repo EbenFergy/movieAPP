@@ -1,8 +1,8 @@
 import { createContext } from "react";
 
 const context = createContext({
-  apiData: null,
-  isLoading: null,
+  trendingApiData: null,
+  trendingIsLoading: null,
 });
 
 export default context;

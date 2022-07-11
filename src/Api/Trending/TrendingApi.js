@@ -1,13 +1,17 @@
-import { useEffect, useState, useCallback } from "react";
-import context from "../store/context";
+import { useEffect, useState, useCallback, useMemo } from "react";
+import context from "../../store/context";
+// import ContextProvider from "../../store/ContextProvider";
 
-const ApiProvider = (props) => {
+const TrendingApiProvider = (props) => {
   const [apiData, setApiData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
+  let randomNumber = useMemo(() => {
+    return Math.floor(Math.random() * 37) % 12;
+  }, []);
+  // let randomNumber = 9;
+
   const fetchHandler = useCallback(async () => {
-    // let randomNumber = Math.floor(Math.random() * 37) % 12;
-    let randomNumber = 9;
     setIsLoading(true);
     const options = {
       method: "GET",
@@ -28,21 +32,24 @@ const ApiProvider = (props) => {
         throw new Error("something went wrong...");
       }
       const data = await response.json();
-      setIsLoading(false);
       // console.log(data);
       setApiData(data);
+      setIsLoading(false);
     } catch (error) {
       console.log(error.message);
     }
-  }, []);
+  }, [randomNumber]);
 
   useEffect(() => {
     fetchHandler();
   }, [fetchHandler]);
 
+  let trender = "this is trender";
+
   const APIContextValues = {
-    apiData: apiData,
-    isLoading: isLoading,
+    trendingApiData: apiData,
+    trendingIsLoading: isLoading,
+    trender: trender,
   };
 
   return (
@@ -52,4 +59,4 @@ const ApiProvider = (props) => {
   );
 };
 
-export default ApiProvider;
+export default TrendingApiProvider;
