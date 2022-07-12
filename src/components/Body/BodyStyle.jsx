@@ -2,10 +2,12 @@ import styled from "styled-components";
 
 const BodyStyle = styled.div`
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  gap: 5rem;
+  /* justify-content: center; */
+  /* align-items: center; */
   padding: 5rem 2rem;
-  background-color: rgba(0, 0, 0, 1);
+  background-color: rgb(6, 6, 6);
   /* border: 2px solid red; */
 
   .movieBody {
@@ -35,6 +37,21 @@ const BodyStyle = styled.div`
         height: 100%;
       }
     }
+  }
+
+  .sectionTitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-family: Helvetica;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  .sectionsStyle {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    /* border: 2px solid #ffffff; */
   }
 `;
 

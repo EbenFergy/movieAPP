@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
-import context from "../../store/context";
 import BodyStyle from "./BodyStyle";
-import Trending from "./Trending";
+import Trending from "./Trending/Trending";
 import TrendingApiProvider from "../../Api/Trending/TrendingApi";
+import Action from "./Action/Action";
+import ActionApiProvider from "../../Api/Action/ActionApi";
+import ComedyApiProvider from "../../Api/Comedy/ComedyApi";
+import Comedy from "./Comedy/Comedy";
 
 const Body = () => {
   // const { trendingApiData, trendingIsLoading } = useContext(context);
@@ -11,24 +14,14 @@ const Body = () => {
       <TrendingApiProvider>
         <Trending />
       </TrendingApiProvider>
-      <div>Trending</div>
-      <div>Action</div>
+      <ActionApiProvider>
+        <Action />
+      </ActionApiProvider>
+      <ComedyApiProvider>
+        <Comedy />
+      </ComedyApiProvider>
       <div>Comedy</div>
       <div>Love</div>
-      {/* {isLoading && <div> Loading... </div>}
-      <div className="movieBody">
-        {!isLoading &&
-          apiData &&
-          apiData.results.map(
-            (results) =>
-              results.primaryImage &&
-              results.primaryImage.url && (
-                <div key={results.id}>
-                  <img src={results.primaryImage.url} alt="no display" />
-                </div>
-              )
-          )}
-      </div> */}
     </BodyStyle>
   );
 };

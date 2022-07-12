@@ -2,18 +2,18 @@ import styled from "styled-components";
 import headerImg from "../../assets/headerImg.webp";
 
 const HeaderStyle = styled.div`
-  height: 75vh;
+  height: 72vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgb(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 5rem;
   font-weight: 700;
 
   background: linear-gradient(
-      rgba(10, 25, 10, 0.7),
-      rgba(10, 25, 10, 0.9),
-      /* rgba(10, 23, 40, 0.9), */ #000000
+      rgba(10, 25, 10, 0.6),
+      rgba(10, 25, 10, 0.8),
+      /* rgba(10, 23, 40, 0.9), */ rgba(6, 6, 6, 1)
     ),
     url(${headerImg});
 

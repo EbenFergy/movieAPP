@@ -6,10 +6,10 @@ const TrendingApiProvider = (props) => {
   const [apiData, setApiData] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  let randomNumber = useMemo(() => {
-    return Math.floor(Math.random() * 37) % 12;
-  }, []);
-  // let randomNumber = 9;
+  // let randomNumber = useMemo(() => {
+  //   return Math.floor(Math.random() * 37) % 12;
+  // }, []);
+  let randomNumber = 9;
 
   const fetchHandler = useCallback(async () => {
     setIsLoading(true);
@@ -23,7 +23,7 @@ const TrendingApiProvider = (props) => {
 
     try {
       const response = await fetch(
-        `https://moviesdatabase.p.rapidapi.com/titles?limit=20&page=${
+        `https://moviesdatabase.p.rapidapi.com/titles?limit=50&page=${
           randomNumber === 0 ? randomNumber + 10 : randomNumber
         }&titleType=movie`,
         options
