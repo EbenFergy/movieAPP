@@ -6,6 +6,8 @@ import Action from "./Action/Action";
 import ActionApiProvider from "../../Api/Action/ActionApi";
 import ComedyApiProvider from "../../Api/Comedy/ComedyApi";
 import Comedy from "./Comedy/Comedy";
+import Love from "./Love/Love";
+import LoveApiProvider from "../../Api/Love/LoveApi";
 
 const Body = () => {
   // const { trendingApiData, trendingIsLoading } = useContext(context);
@@ -20,8 +22,9 @@ const Body = () => {
       <ComedyApiProvider>
         <Comedy />
       </ComedyApiProvider>
-      <div>Comedy</div>
-      <div>Love</div>
+      <LoveApiProvider>
+        <Love />
+      </LoveApiProvider>
     </BodyStyle>
   );
 };
