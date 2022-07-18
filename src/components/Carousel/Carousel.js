@@ -16,14 +16,26 @@ const Carousel = ({ apiData }) => {
     <Swiper
       // install Swiper modules
       modules={[Navigation, Pagination, Scrollbar, A11y]}
-      spaceBetween={20}
-      slidesPerView={6}
+      breakpoints={{
+        300: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 6,
+          spaceBetween: 20,
+        },
+      }}
       navigation
       //   pagination={{ clickable: true }}
-      //   scrollbar={{ draggable: true }}
+      scrollbar={{ draggable: true }}
       //   onSwiper={(swiper) => console.log(swiper)}
       //   onSlideChange={() => console.log("slide change")}
-      style={{ width: "100%" }}
+      style={{ maxWidth: "100%" }}
     >
       {apiData &&
         apiData.results.map(
@@ -32,11 +44,7 @@ const Carousel = ({ apiData }) => {
             results.primaryImage.url && (
               <SwiperSlide key={results.id}>
                 <CarouselStyle>
-                  <img
-                    src={results.primaryImage.url}
-                    alt="no display"
-                    style={{ maxHeight: "20rem" }}
-                  />
+                  <img src={results.primaryImage.url} alt="no display" />
                 </CarouselStyle>
               </SwiperSlide>
             )

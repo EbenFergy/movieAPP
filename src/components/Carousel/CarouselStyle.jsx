@@ -11,6 +11,7 @@ export const CarouselStyle = styled.div`
   overflow: hidden;
   border: 1px solid rgba(10, 25, 10, 1);
   border-radius: 5px;
+  min-width: 10rem;
 
   img {
     width: 100%;

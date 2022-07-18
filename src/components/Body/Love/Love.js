@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import context from "../../../store/context";
 import Carousel from "../../Carousel/Carousel";
+import SlickCarousel from "../../../SlickCarousel";
 
 const Love = ({}) => {
   const { loveApiData, loveIsLoading } = useContext(context);
@@ -11,7 +12,7 @@ const Love = ({}) => {
       <div className="sectionTitle">Love</div>
 
       {loveIsLoading && <div> Loading... </div>}
-      {!loveIsLoading && loveApiData && <Carousel apiData={loveApiData} />}
+      {!loveIsLoading && loveApiData && <SlickCarousel apiData={loveApiData} />}
     </div>
   );
 };
